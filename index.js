@@ -102,6 +102,7 @@ function move(moveName, fieldNumber) {
         '<img class="move-image"src="./assets/' + moveName + '.png"/>';
       movePlayer2 = moveName;
     }
+    botMove();
     checkGameResult();
   }
 }
@@ -112,6 +113,23 @@ function resetScoreBoard() {
   $fieldPlayer1.innerHTML = "";
   $fieldPlayer2.innerHTML = "";
   $winnerField.innerHTML = "Clique em 'Iniciar' para começar!";
+}
+
+function botMove(){
+  botMoves = Math.floor(Math.random() * 3)+1;
+  if (botMoves == 1) {
+    movePlayer2 = "stone"
+    $fieldPlayer2.innerHTML =
+    '<img class="move-image"src="./assets/' + movePlayer2 + '.png"/>';
+  } else if (botMoves == 2) {
+    movePlayer2 = "paper"
+    $fieldPlayer2.innerHTML =
+    '<img class="move-image"src="./assets/' + movePlayer2 + '.png"/>';
+  } else {
+    movePlayer2 = "scissors"
+    $fieldPlayer2.innerHTML =
+    '<img class="move-image"src="./assets/' + movePlayer2 + '.png"/>';
+  }
 }
 
 $stoneButton1.addEventListener("click", function () {
